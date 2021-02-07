@@ -24,7 +24,7 @@ const { withAuth } = createAuth({
   secretField: 'password',
   initFirstItem: {
     fields: ['name', 'email', 'password'],
-    // TODO: Add in inital roles here 
+    // TODO: Add in inital roles here
   },
 });
 
@@ -41,12 +41,11 @@ export default withAuth(
       adapter: 'mongoose',
       url: databaseURL,
       // TODO: Add data seeding here
-      async onConnect (keystone) {
-        if(process.argv.includes("--seed-data")){
-
-                     await insertSeedData(keystone)
+      async onConnect(keystone) {
+        if (process.argv.includes('--seed-data')) {
+          await insertSeedData(keystone);
         }
-      }
+      },
     },
     lists: createSchema({
       // Schema items go in here
