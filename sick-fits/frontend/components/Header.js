@@ -19,6 +19,11 @@ const Logo = styled.h1`
 `;
 
 const HeaderStyles = styled.header`
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #fff;
+
   .bar {
     border-bottom: 10px solid var(--black, black);
     display: grid;
