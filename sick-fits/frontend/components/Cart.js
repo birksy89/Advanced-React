@@ -23,7 +23,7 @@ const CartItemStyles = styled.li`
 `;
 
 function CartItem({ cartItem }) {
-  const { id, product } = cartItem;
+  const { product } = cartItem;
   if (!product) return null;
   return (
     <CartItemStyles>
@@ -41,7 +41,7 @@ function CartItem({ cartItem }) {
           </em>
         </p>
       </div>
-      <RemoveFromCart id={id} />
+      <RemoveFromCart id={cartItem.id} />
     </CartItemStyles>
   );
 }
