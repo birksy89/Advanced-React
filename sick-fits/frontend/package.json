@@ -62,26 +62,6 @@
     "react-test-renderer": "^17.0.1",
     "typescript": "^4.2.2"
   },
-  // "eslintConfig": {
-  //   "extends": [
-  //     "wesbos"
-  //   ],
-  //   "rules": {
-  //     "react/prop-types": 0,
-  //     "react/jsx-props-no-spreading": 0,
-  //     "react/jsx-filename-extension": [
-  //       2,
-  //       {
-  //         "extensions": [
-  //           ".js",
-  //           ".jsx",
-  //           ".ts",
-  //           ".tsx"
-  //         ]
-  //       }
-  //     ]
-  //   }
-  // },
   "jest": {
     "setupFilesAfterEnv": [
       "./jest.setup.js"
