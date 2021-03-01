@@ -1,7 +1,6 @@
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
-// import { CURRENT_USER_QUERY } from "./User";
 
 const BigButton = styled.button`
   font-size: 3rem;
@@ -26,9 +25,8 @@ function update(cache, payload) {
 }
 
 export default function RemoveFromCart({ id }) {
-  const [deleteCartItem, { loading }] = useMutation(REMOVE_FROM_CART_MUTATION, {
+  const [removeFromCart, { loading }] = useMutation(REMOVE_FROM_CART_MUTATION, {
     variables: { id },
-    // refetchQueries: [{ query: CURRENT_USER_QUERY }],
     update,
     // optimisticResponse: {
     //   deleteCartItem: {
@@ -39,7 +37,7 @@ export default function RemoveFromCart({ id }) {
   });
   return (
     <BigButton
-      onClick={deleteCartItem}
+      onClick={removeFromCart}
       disabled={loading}
       type="button"
       title="Remove This Item from Cart"

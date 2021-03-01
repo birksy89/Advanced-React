@@ -81,6 +81,7 @@ async function checkout(
     }
     return orderItem;
   })
+  console.log('gonna create the order')
   // 5. Create the order and return it
   const order = await context.lists.Order.createOne({
     data: {
@@ -93,6 +94,7 @@ async function checkout(
   });
   // 6. Clean up any old cart item
   const cartItemIds = user.cart.map(cartItem => cartItem.id);
+  console.log('gonna create delete cartItems')
   await context.lists.CartItem.deleteMany({
     ids: cartItemIds
   });

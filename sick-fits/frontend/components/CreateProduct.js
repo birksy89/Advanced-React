@@ -49,13 +49,12 @@ export default function CreateProduct() {
     <Form
       onSubmit={async (e) => {
         e.preventDefault();
-        // console.log(inputs);
         // Submit the inputfields to the backend:
-        await createProduct();
+        const res = await createProduct();
         clearForm();
-        //  Go to the products page
+        // Go to that product's page!
         Router.push({
-          pathname: `/product/${data.createProduct.id}`,
+          pathname: `/product/${res.data.createProduct.id}`,
         });
       }}
     >

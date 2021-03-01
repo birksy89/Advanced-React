@@ -26,14 +26,9 @@ function makeANiceEmail(text: string) {
   `;
 }
 
-export interface Envelope {
-  from: string;
-  to?: string[] | null;
-}
-
 export interface MailResponse {
-  accepted?: string[] | null;
-  rejected?: null[] | null;
+  accepted?: (string)[] | null;
+  rejected?: (null)[] | null;
   envelopeTime: number;
   messageTime: number;
   messageSize: number;
@@ -41,6 +36,11 @@ export interface MailResponse {
   envelope: Envelope;
   messageId: string;
 }
+export interface Envelope {
+  from: string;
+  to?: (string)[] | null;
+}
+
 
 export async function sendPasswordResetEmail(
   resetToken: string,
@@ -55,7 +55,8 @@ export async function sendPasswordResetEmail(
       <a href="${process.env.FRONTEND_URL}/reset?token=${resetToken}">Click Here to reset</a>
     `),
   })) as MailResponse;
-  if (process.env.MAIL_USER.includes('ethereal.email')) {
+  if(process.env.MAIL_USER.includes('ethereal.email')) {
     console.log(`💌 Message Sent!  Preview it at ${getTestMessageUrl(info)}`);
+
   }
 }
