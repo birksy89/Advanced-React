@@ -40,5 +40,9 @@ export const User = list({
       ref: 'Product.user',
       many: true,
     }),
+    clubs: relationship({
+      ref: 'Club.user',
+      many: true,
+    }),
   },
 });
