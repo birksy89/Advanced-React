@@ -48,5 +48,10 @@ export const Club = list({
         connect: { id: context.session.itemId },
       }),
     }),
+    games: relationship({
+      ref: 'Game.club',
+      many: true,
+      isUnique: true,
+    }),
   },
 });

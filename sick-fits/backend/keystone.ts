@@ -13,12 +13,11 @@ import { ProductImage } from './schemas/ProductImage';
 import { Product } from './schemas/Product';
 import { User } from './schemas/User';
 import { Club } from './schemas/Club';
+import { Game } from './schemas/Game';
 import 'dotenv/config';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib/mail';
 import { extendGraphqlSchema } from './mutations';
-
-function check(name: string) {}
 
 const databaseURL =
   process.env.DATABASE_URL || 'mongodb://localhost/keystone-sick-fits-tutorial';
@@ -74,6 +73,7 @@ export default withAuth(
       Role,
       // Mine
       Club,
+      Game,
     }),
     extendGraphqlSchema,
     ui: {
