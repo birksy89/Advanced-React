@@ -45,6 +45,7 @@ export const Club = list({
       label: 'Players',
       hooks: { afterChange: () => console.log('After Change') },
       defaultValue: ({ context }) => ({
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
         connect: { id: context.session.itemId },
       }),
     }),

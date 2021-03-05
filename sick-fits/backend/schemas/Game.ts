@@ -1,4 +1,10 @@
-import { integer, select, text, relationship } from '@keystone-next/fields';
+import {
+  integer,
+  select,
+  text,
+  relationship,
+  timestamp,
+} from '@keystone-next/fields';
 import { list } from '@keystone-next/keystone/schema';
 // import { rules, isSignedIn } from '../access';
 
@@ -15,6 +21,10 @@ export const Game = list({
       ui: {
         displayMode: 'textarea',
       },
+    }),
+    startDateTime: timestamp({
+      isRequired: true,
+      defaultValue: new Date().toISOString(),
     }),
 
     status: select({
@@ -34,6 +44,11 @@ export const Game = list({
       ref: 'Club.games',
       isUnique: true,
       hooks: { afterChange: () => console.log('Club After Change') },
+    }),
+    players: relationship({
+      ref: 'User',
+      many: true,
+      isUnique: true,
     }),
   },
 });
